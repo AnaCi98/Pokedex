@@ -1,0 +1,55 @@
+/* mobile */
+@media screen and (max-width: 750px) {
+.imageMenu{
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    padding: 1vh;
+}
+.iconMenu{
+    cursor: pointer;
+    width: 8vh;
+    margin-left: 2vh;
+}
+.imageMenuClose{
+    display: none; 
+}
+}
+
+/* tablet */
+@media screen and (min-width: 750px) {   
+    .imageMenu{
+        width: 100%;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        padding: 1vh;
+    }
+    .iconMenu{
+        cursor: pointer;
+        width: 8vh;
+        margin-left: 2vh;
+    }
+    .imageMenuClose{
+        display: none; 
+    }
+}
+/* DESKTOP */
+@media screen and (min-width: 850px) {
+    .imageMenu{
+        width: 100%;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        padding: 1vh;
+    }
+    .iconMenu{
+        cursor: pointer;
+        width: 8vh;
+        margin-left: 2vh;
+    }
+    .imageMenuClose{
+        display: none; 
+    }
+}

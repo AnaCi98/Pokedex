@@ -1,36 +1,31 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react';
-import Pokemon from './Components/Pokemon';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
+import Searcher from './Components/Searcher';
+import Home from './Components/Home';
 
 function App() {
-  const [pokemon, setPokemon] = useState('');
-  const [data, setData] = useState([]);
-  const getData = async (pokemonName) => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-    const getFetch = await fetch(url).then((result) => result.json());
-    setData(getFetch);
+  const [modalMenu, setMenu] = useState(false);
+  const [classInitial, setClass] = useState('imageMenu');
+  const closeMenu = () => {
+    setMenu(false);
+    setClass('imageMenu');
   };
-  // useEffect(() => {
-  //   getData(pokemon);
-  // }, []);
+  const openMenu = () => {
+    setMenu(true);
+    setClass('imageMenuClose');
+  };
+
   return (
-
-    <div className="App">
-      <p>Hello</p>
-      <input type="text" onChange={(event) => setPokemon(event.target.value)} />
-      <p onClick={() => {
-        getData(pokemon);
-      }}
-      >
-        CLICKEAME
-
-      </p>
-      <Pokemon data={data} />
-    </div>
-
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home classInitial={classInitial} openMenu={openMenu} modalMenu={modalMenu} closeMenu={closeMenu} />} />
+        <Route path="/search-pokemon" element={<Searcher classInitial={classInitial} openMenu={openMenu} modalMenu={modalMenu} closeMenu={closeMenu} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
